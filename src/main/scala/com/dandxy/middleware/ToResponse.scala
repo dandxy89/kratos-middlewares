@@ -48,9 +48,9 @@ trait ToResponseInstances extends LowPrioImplicits {
     ToResponse.instanceF((media, value) => value.flatMap(encoder.run(media)(_).value))
 
   implicit def eitherResponse[F[_], M, B, L, R](
-                                                 implicit l: ToResponse[F, B, M, L],
-                                                 r: ToResponse[F, B, M, R]
-                                               ): ToResponse[F, B, M, Either[L, R]] =
+    implicit l: ToResponse[F, B, M, L],
+    r: ToResponse[F, B, M, R]
+  ): ToResponse[F, B, M, Either[L, R]] =
     ToResponse.instance((media, value) => value.fold(l.run(media), r.run(media)))
 }
 
@@ -80,8 +80,8 @@ object ToResponse extends ToResponseInstances {
     instance((_, _) => OptionT.none)
 
   def matching[F[_], MS <: Traversable[M], M, B, A](
-                                                     fn: A => PartialFunction[M, F[B]]
-                                                   )(implicit F: Applicative[F]): ToResponse[F, MS, B, A] =
+    fn: A => PartialFunction[M, F[B]]
+  )(implicit F: Applicative[F]): ToResponse[F, MS, B, A] =
     instanceF { (media, value) =>
       val f = fn(value)
       media
@@ -92,8 +92,8 @@ object ToResponse extends ToResponseInstances {
     }
 
   implicit def monoidKInstance[F[_], M, R](
-                                            implicit F: Monad[F]
-                                          ): MonoidK[ToResponse[F, M, R, ?]] with Contravariant[ToResponse[F, M, R, ?]] =
+    implicit F: Monad[F]
+  ): MonoidK[ToResponse[F, M, R, ?]] with Contravariant[ToResponse[F, M, R, ?]] =
     new MonoidK[ToResponse[F, M, R, ?]] with Contravariant[ToResponse[F, M, R, ?]] {
 
       override def contramap[A, B](fa: ToResponse[F, M, R, A])(f: B => A): ToResponse[F, M, R, B] =
