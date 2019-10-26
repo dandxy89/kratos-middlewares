@@ -5,5 +5,5 @@ Middlewares for Kratos Apps
 ## Publishing locally
 
 ```bash
-sbt publishLocal
+sh publishLibraryLocally.sh
 ```
