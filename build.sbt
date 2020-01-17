@@ -1,5 +1,5 @@
 organization := "com.dandxy89"
-scalaVersion := "2.12.9"
+scalaVersion := "2.12.10"
 version := "0.0.1-SNAPSHOT"
 name := "kratos-middleware"
 
@@ -17,4 +17,3 @@ IntegrationTest / fork := false
 IntegrationTest / testForkedParallel := false
 publishArtifact := false
 publishArtifact in (Compile, packageBin) := true
-
