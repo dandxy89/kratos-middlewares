@@ -4,9 +4,9 @@ object ProjectDependencies extends {
 
   private[this] object Version {
     val circeVersion     = "0.11.2"
-    val http4sVersion    = "0.20.15"
+    val http4sVersion    = "0.20.17"
     val JwtVersion       = "3.1.0"
-    val scalaTestVersion = "3.0.5"
+    val scalaTestVersion = "3.1.0"
   }
 
   def apply(): Seq[ModuleID] = Seq(
