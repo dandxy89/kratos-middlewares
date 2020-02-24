@@ -23,7 +23,7 @@ object ProjectDependencies extends {
     "com.pauldijou" %% "jwt-core"             % Version.JwtVersion,
     "org.scalatest" %% "scalatest"            % Version.scalaTestVersion % "it, test",
     // Compiler Plugins
-    compilerPlugin("org.spire-math" %% "kind-projector"     % "0.9.4"),
+    compilerPlugin("org.typelevel" %% "kind-projector" % "0.11.0" cross CrossVersion.full),
     compilerPlugin("com.olegpy"     %% "better-monadic-for" % "0.3.1")
   )
 }
