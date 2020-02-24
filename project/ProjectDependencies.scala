@@ -3,10 +3,10 @@ import sbt.{ ModuleID, compilerPlugin, _ }
 object ProjectDependencies extends {
 
   private[this] object Version {
-    val circeVersion     = "0.11.2"
-    val http4sVersion    = "0.20.15"
-    val JwtVersion       = "3.1.0"
-    val scalaTestVersion = "3.0.5"
+    val circeVersion     = "0.13.0"
+    val http4sVersion    = "0.21.1"
+    val JwtVersion       = "4.2.0"
+    val scalaTestVersion = "3.1.1"
   }
 
   def apply(): Seq[ModuleID] = Seq(
@@ -23,7 +23,7 @@ object ProjectDependencies extends {
     "com.pauldijou" %% "jwt-core"             % Version.JwtVersion,
     "org.scalatest" %% "scalatest"            % Version.scalaTestVersion % "it, test",
     // Compiler Plugins
-    compilerPlugin("org.spire-math" %% "kind-projector"     % "0.9.4"),
+    compilerPlugin("org.typelevel" %% "kind-projector" % "0.11.0" cross CrossVersion.full),
     compilerPlugin("com.olegpy"     %% "better-monadic-for" % "0.3.1")
   )
 }

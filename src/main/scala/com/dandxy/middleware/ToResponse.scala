@@ -8,8 +8,6 @@ import cats.{ ~>, Applicative, Contravariant, FlatMap, Functor, Monad, MonoidK }
 import com.dandxy.middleware.ToResponse.{ apply, instance }
 import com.dandxy.middleware.model.Exported
 
-import scala.language.higherKinds
-
 trait ToResponse[F[_], M, B, A] { self =>
 
   def run: Kleisli[OptionT[F, ?], (M, A), B]

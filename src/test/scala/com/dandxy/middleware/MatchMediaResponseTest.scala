@@ -12,8 +12,6 @@ import org.http4s.circe._
 import org.http4s.{ Header, MediaRange, MediaType, Method, Request, Response, Status, Uri }
 import org.scalatest.{ FlatSpec, Matchers }
 
-import scala.language.higherKinds
-
 trait TestError {
   def message: String
   def detailedMessage: String

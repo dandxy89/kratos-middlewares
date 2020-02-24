@@ -12,7 +12,5 @@ trait ToResponseInstances {
   implicit def unitResponse[F[_]: Monad]: ToHttpResponse[F, Unit] = ToResponse.pure(Response(Status.NoContent))
 
   implicit def optionResponse[F[_]: Monad, T](implicit encoder: ToHttpResponse[F, T]): ToHttpResponse[F, Option[T]] =
-    ToResponse.instance { (media, value) =>
-      value.fold(Response[F](Status.NotFound).pure[OptionT[F, ?]])(encoder.run(media))
-    }
+    ToResponse.instance((media, value) => value.fold(Response[F](Status.NotFound).pure[OptionT[F, ?]])(encoder.run(media)))
 }

@@ -13,7 +13,6 @@ import org.http4s.{ AuthScheme, AuthedRoutes, Credentials, Request }
 import pdi.jwt.algorithms.{ JwtAsymmetricAlgorithm, JwtHmacAlgorithm }
 import pdi.jwt.{ Jwt, JwtClaim }
 
-import scala.language.higherKinds
 import scala.util.Try
 
 object JwtAuthMiddleware {

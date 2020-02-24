@@ -1,5 +1,5 @@
 organization := "com.dandxy89"
-scalaVersion := "2.12.10"
+scalaVersion := "2.13.1"
 version := "0.0.1-SNAPSHOT"
 name := "kratos-middleware"
 
