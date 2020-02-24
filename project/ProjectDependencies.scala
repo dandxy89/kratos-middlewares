@@ -3,7 +3,7 @@ import sbt.{ ModuleID, compilerPlugin, _ }
 object ProjectDependencies extends {
 
   private[this] object Version {
-    val circeVersion     = "0.11.2"
+    val circeVersion     = "0.13.0"
     val http4sVersion    = "0.20.17"
     val JwtVersion       = "3.1.0"
     val scalaTestVersion = "3.1.0"
