@@ -4,8 +4,8 @@ object ProjectDependencies extends {
 
   private[this] object Version {
     val circeVersion     = "0.13.0"
-    val http4sVersion    = "0.21.1"
-    val JwtVersion       = "4.2.0"
+    val http4sVersion    = "0.21.2"
+    val JwtVersion       = "4.3.0"
     val scalaTestVersion = "3.1.1"
   }
 
